@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+
+<ul>
+    {% for task in tasks %}
+    <li>
+            <a style="text-decoration:none; color:black;" href="{% url 'task_detail' task.id %}"><strong>{{ task.title }}</strong></a>
+            <p>{{ task.description }}</p>
+            <p>{{ action }} by {{ task.user.username }} on {{ task.created }}</p>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
